@@ -1,0 +1,15 @@
+Config { font = "xft:DejaVu Sans Mono:pixelsize=12:normal:antialias=true:hinting=true"
+       , bgColor = "black"
+       , fgColor = "gray"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [ Run Cpu ["-t", "CPU:<total>%", "-p", "3", "-H","50","--high","red"] 50
+                    , Run Memory ["-t","RAM:<usedratio>%", "-p", "3", "-H", "80", "--high", "red"] 50
+                    , Run Date "%a %b %_d %Y %H:%M" "date" 10
+                    , Run DiskU [("/", "HD: / <usedp>%"), ("/home", "/home <usedp>%")] [] 100
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %cpu% | %memory% | %disku% | <fc=#FFA300>%date%</fc> "
+       }
