@@ -1,0 +1,26 @@
+[user]
+    name = "Slawek Zachcial"
+    email = slawomir.zachcial@hp.com
+[color]
+    ui = auto
+[alias]
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
+    lg1 = log --oneline
+[core]
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
+    filemode = false
+[merge]
+    tool = bc3
+[mergetool]
+    prompt = false
+[difftool]
+    prompt = false
+[svn]
+    rmdir = true
+[push]
+    default = simple
+[credential]
+    helper = cache --timeout 86400
+[http]
+    sslVerify = false
