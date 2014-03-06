@@ -1,0 +1,65 @@
+#!/bin/sh
+
+
+
+function print_all_servers {
+# split("", names) => it's an idiom to delete all items from the array
+	awk '
+		BEGIN {maxlength=0}
+		tolower($1) ~ /^host$/ && $0 !~ /*/ {\
+			split("", names); \
+			for (i=2; i<=NF; ++i) {\
+				names[i]=$i; \
+				if (length($i) > maxlength) {maxlength=length($i)}
+			}
+		}
+		tolower($1) ~ /^hostname$/ {\
+			for (n in names) {hosts[names[n]]=$2}
+		}
+		END {for (h in hosts) {printf "%-"maxlength"s  %s\n", h, hosts[h]}}' "$1" \
+	| sort
+}
+
+function print_help_and_exit {
+	echo "Usage: servers [options...] pattern1 [pattern2 ...]"
+	echo
+	echo " Print host names corresponding to Host values matching specified patterns"
+	echo
+	echo "Options:"
+	echo " -h         Print this message and exit"
+	echo " -n         Print only the Host values matching the specified patterns"
+	echo " -v         Print Host values matching the patterns and corresponding host names"
+	echo " -f FILE    Use FILE instead of ~/.ssh/config"
+	echo " -d         Print also debug information"
+	exit 0
+}
+
+data_file="$HOME/.ssh/config"
+what_to_print="hosts"
+print_debug="no"
+
+while getopts "hnvf:d" option_name; do
+	case "$option_name" in
+		h) print_help_and_exit;;
+		n) what_to_print="names";;
+		v) what_to_print="all";;
+		f) data_file="$OPTARG";;
+		d) print_debug="yes";;
+	esac
+done
+
+shift $((OPTIND-1))
+
+# copy $@ to args array to join its elements (following line) using '|' separator
+args=("$@")
+pattern=$(IFS=$'|'; echo "${args[*]}")
+
+[[ "$print_debug" = "yes" ]] && printf "DEBUG: what_to_print=[%s], data_file=[%s], pattern=[%s]\n" $what_to_print $data_file $pattern 1>&2
+
+[[ -z "$pattern" ]] && [[ "$what_to_print" = "all" ]]   && print_all_servers "$data_file" 
+[[ -z "$pattern" ]] && [[ "$what_to_print" = "names" ]] && print_all_servers "$data_file" | awk '{print $1}'
+[[ -z "$pattern" ]] && [[ "$what_to_print" = "hosts" ]] && print_all_servers "$data_file" | awk '{print $2}'
+[[ -n "$pattern" ]] && [[ "$what_to_print" = "all" ]]   && print_all_servers "$data_file" | awk '$1 ~ /'$pattern'/ {print $0}'
+[[ -n "$pattern" ]] && [[ "$what_to_print" = "names" ]] && print_all_servers "$data_file" | awk '$1 ~ /'$pattern'/ {print $1}'
+[[ -n "$pattern" ]] && [[ "$what_to_print" = "hosts" ]] && print_all_servers "$data_file" | awk '$1 ~ /'$pattern'/ {print $2}'
+

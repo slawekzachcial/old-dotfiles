@@ -1,0 +1,15 @@
+autoload -U colors && colors
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+precmd() {
+    vcs_info
+}
+setopt prompt_subst
+
+#PS1="$PS_NO_COLOR\n$PS_LIGHT_PURPLE\w$PS_NO_COLOR\n"'$(__git_ps1 "git~'$PS_LIGHT_CYAN'%s'$PS_NO_COLOR' ")'"\$ "
+
+PROMPT='%{$reset_color%}
+%{$fg_bold[yellow]%}%m %{$fg_bold[magenta]%}%~%{$reset_color%}
+%{$fg_bold[cyan]%}${vcs_info_msg_0_}%{$reset_color%}\$ '
+

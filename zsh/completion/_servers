@@ -1,0 +1,30 @@
+#compdef servers
+
+
+_servers() {
+	local curcontext="$curcontext" state line
+	typeset -A opt_args
+	integer NORMARG
+	local data_file
+
+	_arguments -n \
+		'(-v -n)-h[Print usage information]' \
+		'(-h -v)-n[Print host symbolic names]' \
+		'(-h -n)-v[Print host symbolic and actual names]' \
+		'-f+[Specify file with host definitions]:file with host definitions:_files' \
+		'*:remote host name:->userhost'
+
+	(( $+opt_args[-f] )) && data_file="$opt_args[-f]"
+
+
+	case "$state" in
+	userhost)
+		#echo "\nDEBUG-COMPL: NORMARG=[$NORMARG], words=[${words}], cmd=[$(echo servers -d -n ${words:$NORMARG-1})]"
+		#echo "\nDEBUG-COMPL:[compadd" "$@" "$(servers -n ${words:$NORMARG-1})]"
+		[[ -z "$data_file" ]] && compadd "$@" $(servers -n ${words:$NORMARG-1})
+		[[ -n "$data_file" ]] && compadd "$@" $(servers -f "$data_file" -n ${words:$NORMARG-3})
+	;;
+	esac
+}
+
+_servers "$@"

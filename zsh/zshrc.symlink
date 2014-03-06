@@ -1,0 +1,33 @@
+export DOTFILES=$HOME/.dotfiles
+
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt appendhistory extendedhistory extendedglob
+bindkey -v
+
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
+source $DOTFILES/zsh/exports
+source $DOTFILES/zsh/aliases
+source $DOTFILES/zsh/functions
+source $DOTFILES/zsh/prompt
+
+zstyle :compinstall filename "$HOME/.zshrc"
+
+fpath=($DOTFILES/zsh/completion $fpath)
+
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' group-name 
+
+start-ssh-agent
+

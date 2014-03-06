@@ -1,0 +1,15 @@
+export LS_COLORS="ow=01;95:di=01;95"
+
+export JAVA_HOME=/opt/java6
+export IDEA_JDK=$JAVA_HOME
+
+export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+export LESS=' -R '
+
+PATH=$DOTFILES/bin:$PATH
+PATH=$PATH:$JAVA_HOME/bin
+PATH=$PATH:~/node_modules/.bin
+PATH=$PATH:$HOME/.rvm/bin
+export PATH
+
+export EDITOR=vim
