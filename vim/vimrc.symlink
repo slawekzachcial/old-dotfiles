@@ -20,10 +20,12 @@ Bundle 'bufkill.vim'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
-"Bundle 'FuzzyFinder'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
 "Bundle 'wincent/Command-T'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tComment'
+Bundle 'YankRing.vim'
 
 filetype plugin indent on     " required!
 
