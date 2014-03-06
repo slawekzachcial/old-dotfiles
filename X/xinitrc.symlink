@@ -2,5 +2,8 @@ VBoxClient-all &
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+# Remap ESC to CapsLock - from http://dailyvim.blogspot.com/2008/04/ways-to-avoid-esc-key.html
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
 source ~/.xmonad/xmonadrc
 
