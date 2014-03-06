@@ -1,0 +1,6 @@
+VBoxClient-all &
+
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
+source ~/.dotfiles/xmonad/xmonadrc
+
