@@ -68,7 +68,7 @@ URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 ! URxvt*background:            S_base03
 
 ! URxvt*background:              S_base03
-URxvt*background:              [50]#202020
+URxvt*background:              [80]#202020
 ! URxvt*foreground:              S_base0
 URxvt*foreground:              White
 ! URxvt*fading:                  40
