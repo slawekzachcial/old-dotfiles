@@ -52,7 +52,7 @@ main = do
     xmonad $ defaultConfig
         { modMask = mod4Mask
         , terminal = "urxvt"
-        , borderWidth = 2
+        , borderWidth = 4
         , normalBorderColor = "#1793D1"
         , focusedBorderColor = "#FFA300"
         , layoutHook = avoidStruts $ myLayout
