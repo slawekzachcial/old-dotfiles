@@ -79,6 +79,9 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+" exit Edit mode with jj
+imap jj <ESC>
+
 " easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
