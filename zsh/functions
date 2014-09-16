@@ -5,10 +5,10 @@ function ssh {
 
     if [[ $# -eq 1 ]] && [[ $1 =~ '-pro-' ]]; then
         #(nohup urxvt -bg "[50]#C00000" -e sh -c "TERM=xterm /usr/bin/ssh $1" &) ; exit
-        urxvt -bg "[50]#C00000" -e sh -c "TERM=xterm /usr/bin/ssh $1" &
+        urxvt -bg "#C00000" -e sh -c "TERM=xterm /usr/bin/ssh $1" &
     elif [[ $# -eq 1 ]] && [[ $1 =~ '-itg-' ]]; then
         #(nohup urxvt -bg "[50]#4472C4" -e sh -c "TERM=xterm /usr/bin/ssh $1" &) ; exit
-        urxvt -bg "[50]#4472C4" -e sh -c "TERM=xterm /usr/bin/ssh $1" &
+        urxvt -bg "#4472C4" -e sh -c "TERM=xterm /usr/bin/ssh $1" &
     else
         TERM=xterm /usr/bin/ssh "$@"
     fi
