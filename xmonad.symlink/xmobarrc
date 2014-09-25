@@ -7,9 +7,10 @@ Config { font = "xft:DejaVu Sans Mono:pixelsize=11:bold:antialias=true:hinting=t
                     , Run Memory ["-t","RAM:<usedratio>%", "-p", "3", "-H", "80", "--high", "red"] 50
                     , Run Date "%a %b %_d %Y %H:%M" "date" 10
                     , Run DiskU [("/", "HD: / <usedp>%"), ("/home", "/home <usedp>%")] [] 100
+                    , Run Kbd [("us", "ENG"), ("fr", "FRA"), ("pl", "POL")]
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %cpu% | %memory% | %disku% | <fc=#FFA300>%date%</fc> "
+       , template = " %StdinReader% }{ %cpu% | %memory% | %disku% | %kbd% <fc=#FFA300>%date%</fc> "
        }
