@@ -12,15 +12,6 @@ alias psgrep='ps -ef | grep --color'
 alias vi=vim
 alias view='vim -R'
 
-alias cdw='cd ~/Workspace'
-alias cdspf='cd ~/Workspace/spf.git'
-#alias cdspfa='cd ~/Workspace/spf.git/access-scripts'
-alias cdcas='cd ~/Workspace/cas.git'
-#alias cdcasa='cd ~/Workspace/cas.git/access-scripts'
-alias cdspp='cd ~/Workspace/spp.svn'
-alias cdmdcp='cd ~/Workspace/mdcp.git'
-#alias cdmdcpa='cd ~/Workspace/mdcp.git/access-scripts'
-
 alias xarg1='xargs -n1 -i'
 
 alias startx='startx &> ~/.xlog'

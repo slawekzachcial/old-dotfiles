@@ -62,4 +62,6 @@ function bc3 {
     bcompare "$@" &
 }
 
-
+function c {
+    cd ~/Workspace/$1
+}
