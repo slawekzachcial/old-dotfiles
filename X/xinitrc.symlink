@@ -8,5 +8,8 @@ VBoxClient-all &
 # Set keyboard layouts, switch between them using Left Alt + Left Shift
 setxkbmap -layout us,fr,pl -option grp:lalt_lshift_toggle
 
+# Activate numlockx
+numlockx &
+
 source ~/.xmonad/xmonadrc
 
