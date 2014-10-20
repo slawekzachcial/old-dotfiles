@@ -11,5 +11,8 @@ setxkbmap -layout us,fr,pl -option grp:lalt_lshift_toggle
 # Activate numlockx
 numlockx &
 
+# Hide mouse pointer when inactive
+unclutter -grab &
+
 source ~/.xmonad/xmonadrc
 
