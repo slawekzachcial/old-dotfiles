@@ -15,5 +15,5 @@ Config { font = "xft:DejaVu Sans Mono:pixelsize=11:bold:antialias=true:hinting=t
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %battery% | %dynnetwork% | %cpu% | %memory% | %disku% | %kbd% <fc=#FFA300>%date%</fc> "
+       , template = " %StdinReader% }{ %dynnetwork% | %battery% | %cpu% | %memory% | %disku% | %kbd% <fc=#FFA300>%date%</fc> "
        }
