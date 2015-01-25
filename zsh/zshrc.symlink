@@ -11,8 +11,6 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-source $DOTFILES/zsh/exports
-source $DOTFILES/zsh/aliases
 source $DOTFILES/zsh/functions
 source $DOTFILES/zsh/prompt
 
@@ -28,6 +26,4 @@ zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name 
-
-start-ssh-agent
 

@@ -13,3 +13,8 @@ The project should be cloned into user's home directory as follows:
 The project files are organized into topics. All the files or directories having `.symlink` extension
 should be symlinked in the home directory, e.g. `~/.zshrc -> ~/.dotfiles/zsh/zshrc.symlink`
 
+OS X
+----
+
+The files I use on OS X are in the `osx` branch.
+
