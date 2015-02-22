@@ -24,6 +24,7 @@ Bundle 'FuzzyFinder'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tComment'
 Bundle 'YankRing.vim'
+Bundle 'fatih/vim-go'
 
 filetype plugin indent on     " required!
 

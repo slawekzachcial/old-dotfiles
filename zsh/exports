@@ -7,7 +7,7 @@ export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
 PATH=$DOTFILES/bin:$PATH
-PATH=$PATH:$JAVA_HOME/bin
+PATH=$PATH:$JAVA_HOME/bin:/usr/local/opt/go/libexec/bin
 export PATH
 
 export EDITOR=vim
