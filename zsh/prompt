@@ -27,7 +27,7 @@ function zle-line-finish {
 zle -N zle-line-finish
 
 PROMPT='%{$reset_color%}
-%{$fg_bold[yellow]%}%m %{$fg_bold[magenta]%}%~%{$reset_color%}
-%{$fg_bold[grey]%}${vim_mode}%{$reset_color%}%{$fg_bold[cyan]%}${vcs_info_msg_0_}%{$reset_color%}\$ '
+%{$fg[yellow]%}%m %{$fg[magenta]%}%~%{$reset_color%}
+%{$fg[white]%}${vim_mode}%{$reset_color%}%{$fg[cyan]%}${vcs_info_msg_0_}%{$reset_color%}\$ '
 
 #RPROMPT='${vim_mode}'
