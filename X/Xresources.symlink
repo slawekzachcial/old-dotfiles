@@ -22,7 +22,7 @@ URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 ! Tango color palette
-URxvt*background:         #2e3436
+URxvt*background:         [90]#2e3436
 URxvt*foreground:         #eeeeec
 URxvt*cursorColor:        #8ae234
 ! foreground color for underline
