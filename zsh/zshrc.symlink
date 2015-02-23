@@ -16,6 +16,12 @@ source $DOTFILES/zsh/aliases
 source $DOTFILES/zsh/functions
 source $DOTFILES/zsh/prompt
 
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 zstyle :compinstall filename "$HOME/.zshrc"
 
 fpath=($DOTFILES/zsh/completion $fpath)
