@@ -13,7 +13,8 @@ Bundle 'gmarik/vundle'
 
 " My bundles here:
 "
-Bundle 'xoria256.vim'
+" Bundle 'xoria256.vim'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'Markdown'
 Bundle 'bufkill.vim'
 Bundle 'bling/vim-airline'
@@ -24,6 +25,7 @@ Bundle 'FuzzyFinder'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tComment'
 Bundle 'YankRing.vim'
+Bundle 'derekwyatt/vim-scala'
 Bundle 'fatih/vim-go'
 
 filetype plugin indent on     " required!
@@ -101,15 +103,15 @@ nnoremap <leader>N :setlocal number!<CR>
 " Color Scheme {{{
 " -- Solarized --
 " From https://github.com/altercation/vim-colors-solarized
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans=1
-" syntax enable
-" set background=dark
-" colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+syntax enable
+set background=light
+colorscheme solarized
 " -- Xoria256 --
-syntax on
-set t_Co=256
-colorscheme xoria256
+" syntax on
+" set t_Co=256
+" colorscheme xoria256
 " }}}
 
 " Airline {{{
