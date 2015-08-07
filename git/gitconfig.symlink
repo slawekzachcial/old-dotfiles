@@ -10,6 +10,7 @@
     autocrlf = input
     excludesfile = ~/.gitignore_global
     filemode = false
+	editor = /usr/bin/vim
 [merge]
     tool = bc3
 [mergetool]
