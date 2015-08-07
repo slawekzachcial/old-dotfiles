@@ -11,9 +11,10 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# TODO: change it to replace all *.zsh files
 source $DOTFILES/zsh/aliases
 source $DOTFILES/zsh/functions
-source $DOTFILES/zsh/prompt
+source $DOTFILES/zsh/prompt.zsh
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
