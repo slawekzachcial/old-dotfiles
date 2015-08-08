@@ -37,3 +37,8 @@ zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name 
 
+export THEME="base16-default"
+export BACKGROUND="dark"
+
+BASE16_SHELL="$DOTFILES/colors/base16-shell/$THEME.$BACKGROUND.sh"
+source $BASE16_SHELL

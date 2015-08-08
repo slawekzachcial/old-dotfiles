@@ -5,29 +5,37 @@ set nocompatible              " be iMproved
 filetype off                  " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+" required!
+Plugin 'gmarik/vundle'
 
-" My bundles here:
+" My Plugins here:
 "
-" Bundle 'xoria256.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Markdown'
-Bundle 'bufkill.vim'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tComment'
-Bundle 'YankRing.vim'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'fatih/vim-go'
+" Colors
+" Plugin 'xoria256.vim'
+" Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
 
+" Languages
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'Markdown'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'fatih/vim-go'
+Plugin 'kchmck/vim-coffee-script'
+
+" Other
+" Plugin 'bufkill.vim'
+Plugin 'bling/vim-airline'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'airblade/vim-gitgutter'
+" Plugin 'L9'
+" Plugin 'FuzzyFinder'
+" Plugin 'tComment'
+" Plugin 'YankRing.vim'
+
+call vundle#end()
 filetype plugin indent on     " required!
 
 " }}}
@@ -46,7 +54,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 set hidden                              " allow to switch buffer with unwritten changes
 set nowrap                              " don't wrap lines
 set tabstop=4                           " a tab is 4 spaces
-set expandtab 							" use spaces instead of tabs
+set expandtab                           " use spaces instead of tabs
 set backspace=indent,eol,start          " allow backspacing over everything in insert mode
 set autoindent                          " always set autoindenting to on
 set copyindent                          " copy the previous indentation on autoindentin
@@ -90,24 +98,30 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " clear search buffer by pressing ,/
-nmap <silent> ,/ :nohlsearch<CR>
+" nmap <silent> ,/ :nohlsearch<CR>
+nmap <leader>h :set hlsearch!<CR>
 
 " toggle show/hide invisible chars
-nnoremap <leader>i :set list!<CR>
+nmap <leader>i :set list!<CR>
 
 " toggle line numbers
-nnoremap <leader>N :setlocal number!<CR>
+nmap <leader>N :setlocal number!<CR>
 
 " }}}
 
 " Color Scheme {{{
+" -- Base16 --
+set encoding=utf8
+let base16colorspace=256
+set t_Co=256
+execute "set background=".$BACKGROUND
+execute "colorscheme ".$THEME
 " -- Solarized --
 " From https://github.com/altercation/vim-colors-solarized
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-syntax enable
-set background=light
-colorscheme solarized
+" let g:solarized_termcolors=256
+" let g:solarized_termtrans=1
+" syntax enable
+" colorscheme solarized
 " -- Xoria256 --
 " syntax on
 " set t_Co=256
@@ -119,48 +133,48 @@ set laststatus=2
 " }}}
 
 " vim-gitgutter {{{
-highlight clear SignColumn
+" highlight clear SignColumn
 " }}}
 
 " tComment {{{
-map <leader>c <c-_><c-_>
+" map <leader>c <c-_><c-_>
 " }}}
 
 " Custom buffer selection function from http://djcraven5.blogspot.fr/2006/10/faster-buffer-switches-in-vim_21.html
-function! BufSel(pattern)
-    let buflist = []
-    let bufcount = bufnr("$")
-    let currbufnr = 1
-
-    while currbufnr <= bufcount
-        if(buflisted(currbufnr))
-            let currbufname = bufname(currbufnr)
-            if (exists("g:BufSel_Case_Sensitive") == 0 || g:BufSel_Case_Sensitive == 0)
-                let curmatch = tolower(currbufname)
-                let patmatch = tolower(a:pattern)
-            else
-                let curmatch = currbufname
-                let patmatch = a:pattern
-            endif
-            if(match(curmatch, patmatch) > -1)
-                call add(buflist, currbufnr)
-            endif
-        endif
-        let currbufnr = currbufnr + 1
-    endwhile
-    if(len(buflist) > 1)
-        for bufnum in buflist
-            echo bufnum . ":      ". bufname(bufnum)
-        endfor
-        let desiredbufnr = input("Enter buffer number: ")
-        if(strlen(desiredbufnr) != 0)
-            exe ":bu ". desiredbufnr
-        endif
-    elseif (len(buflist) == 1)
-        exe ":bu " . get(buflist,0)
-    else
-        echo "No matching buffers"
-    endif
-endfunction
-command! -nargs=1 -complete=buffer Bs :call BufSel("<args>")
-cabbr b Bs
+" function! BufSel(pattern)
+"     let buflist = []
+"     let bufcount = bufnr("$")
+"     let currbufnr = 1
+"
+"     while currbufnr <= bufcount
+"         if(buflisted(currbufnr))
+"             let currbufname = bufname(currbufnr)
+"             if (exists("g:BufSel_Case_Sensitive") == 0 || g:BufSel_Case_Sensitive == 0)
+"                 let curmatch = tolower(currbufname)
+"                 let patmatch = tolower(a:pattern)
+"             else
+"                 let curmatch = currbufname
+"                 let patmatch = a:pattern
+"             endif
+"             if(match(curmatch, patmatch) > -1)
+"                 call add(buflist, currbufnr)
+"             endif
+"         endif
+"         let currbufnr = currbufnr + 1
+"     endwhile
+"     if(len(buflist) > 1)
+"         for bufnum in buflist
+"             echo bufnum . ":      ". bufname(bufnum)
+"         endfor
+"         let desiredbufnr = input("Enter buffer number: ")
+"         if(strlen(desiredbufnr) != 0)
+"             exe ":bu ". desiredbufnr
+"         endif
+"     elseif (len(buflist) == 1)
+"         exe ":bu " . get(buflist,0)
+"     else
+"         echo "No matching buffers"
+"     endif
+" endfunction
+" command! -nargs=1 -complete=buffer Bs :call BufSel("<args>")
+" cabbr b Bs
