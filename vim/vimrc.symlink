@@ -9,7 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " My Plugins here:
 "
@@ -25,6 +25,8 @@ Plugin 'kchmck/vim-coffee-script'
 
 " Other
 Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-commentary'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -66,11 +68,11 @@ set noerrorbells                        " don't beep
 set nobackup
 set noswapfile
 syntax on
-"set list                                        " highlight whitespaces
+set list                                        " highlight whitespaces
 set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·  " highlight whitespaces
 set wildmenu                            " show command completion matches highlights
-"set virtualedit=all                     " allow the cursor to go in to "invalid" places
-set clipboard=unnamedplus               " alias unnamed register to the + register, which is the X Window clipboard
+set virtualedit=all                     " allow the cursor to go in to "invalid" places
+set clipboard=unnamed                   " alias unnamed register to the + register, which is the X Window clipboard
 set cpoptions+=$                        " show dollar sign when changing
 
 " disable arrow keys to force using VIM keys
@@ -112,5 +114,11 @@ execute "colorscheme ".$THEME
 " Airline {{{
 set laststatus=2
 let g:airline_powerline_fonts=1
+let g:airline_theme='base16'
 " }}}
 
+" CtrlP {{{
+let g:ctrlp_map='<c-p>'
+let g:ctrlp_cmd='CtrlP'
+let g:ctrlp_working_path_mode='ra'
+" }}}
