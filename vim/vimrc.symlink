@@ -74,6 +74,7 @@ set wildmenu                            " show command completion matches highli
 set virtualedit=all                     " allow the cursor to go in to "invalid" places
 set clipboard=unnamed                   " alias unnamed register to the + register, which is the X Window clipboard
 set cpoptions+=$                        " show dollar sign when changing
+set cursorline                          " highlight current line
 
 " disable arrow keys to force using VIM keys
 map <up> <nop>
