@@ -13,7 +13,7 @@ bindkey -M vicmd v edit-command-line
 bindkey -M viins 'jj' vi-cmd-mode
 
 # TODO: change it to replace all *.zsh files
-source $DOTFILES/zsh/aliases
+source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/functions
 source $DOTFILES/zsh/prompt.zsh
 

@@ -16,7 +16,7 @@ for file in $(ls -1 -d **/*.symlink); do
     ln -s $DOTFILES/$file $target
 done
 
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)"=="Darwin" ]; then
     echo "Running on OS X"
 
     echo "Installing Homebrew"
