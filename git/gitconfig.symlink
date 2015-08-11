@@ -1,5 +1,6 @@
 [user]
     name = "Slawek Zachcial"
+    # The below email may be overwritten by ~/.localrc included from ~/.zshrc to allow to use different emails for personal and work stuff
     email = slawek.zachcial@gmail.com
 [color]
     ui = auto
