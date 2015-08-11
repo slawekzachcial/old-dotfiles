@@ -1,7 +1,8 @@
+[include]
+    # Capture in the file below environment-specific configurations
+    path = ~/.local-gitconfig
 [user]
     name = "Slawek Zachcial"
-    # The below email may be overwritten by ~/.localrc included from ~/.zshrc to allow to use different emails for personal and work stuff
-    email = slawek.zachcial@gmail.com
 [color]
     ui = auto
 [alias]
@@ -11,7 +12,7 @@
     autocrlf = input
     excludesfile = ~/.gitignore_global
     filemode = false
-	editor = /usr/bin/vim
+    editor = /usr/bin/vim
 [merge]
     tool = bc3
 [mergetool]

@@ -1,0 +1,18 @@
+VBoxClient-all &
+
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
+# Remap ESC to CapsLock - from http://dailyvim.blogspot.com/2008/04/ways-to-avoid-esc-key.html
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
+# Set keyboard layouts, switch between them using Left Alt + Left Shift
+setxkbmap -layout us,fr,pl -option grp:lalt_lshift_toggle
+
+# Activate numlockx
+numlockx &
+
+# Hide mouse pointer when inactive
+unclutter -grab &
+
+source ~/.xmonad/xmonadrc
+

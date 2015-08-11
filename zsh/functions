@@ -1,8 +1,0 @@
-
-function svndiff {
-    svn diff "${@}" | colordiff | less
-}
-
-function c {
-    cd ~/Workspace/$1
-}

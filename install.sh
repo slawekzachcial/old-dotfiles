@@ -11,12 +11,17 @@ git submodule update --init --recursive
 
 echo "Creating symlinks"
 for file in $(ls -1 -d **/*.symlink); do
-    target="$HOME/.$(basename $file ".symlink")"
-    echo "$target -> $file"
-    ln -s $DOTFILES/$file $target
+    if [[ "$(name)" == "Darwin" &&  ( "$file" =~ "X/" || "$file" =~ "xmonad" || "$file" =~ "zprofile" ) ]]; then
+        # do nothing - we don't want to link those on OS X
+        echo "Skiping $file"
+    else
+        target="$HOME/.$(basename $file ".symlink")"
+        echo "$target -> $file"
+        ln -s $DOTFILES/$file $target
+    fi
 done
 
-if [ "$(uname)"=="Darwin" ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
     echo "Running on OS X"
 
     echo "Installing Homebrew"

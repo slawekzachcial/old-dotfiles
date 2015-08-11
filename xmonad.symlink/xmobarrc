@@ -1,0 +1,19 @@
+Config { font = "xft:DejaVu Sans Mono:pixelsize=11:bold:antialias=true:hinting=true"
+       , bgColor = "black"
+       , fgColor = "gray"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [ Run Cpu ["-t", "CPU:<total>%", "-p", "3", "-H","50","--high","red"] 50
+                    , Run Memory ["-t","RAM:<usedratio>%", "-p", "3", "-H", "80", "--high", "red"] 50
+                    , Run Date "%a %b %_d %Y %H:%M" "date" 10
+                    , Run DiskU [("/", "HD: / <usedp>%"), ("/home", "/home <usedp>%")] [] 100
+                    , Run DynNetwork [] 10
+                    , Run Network "eth1" [] 10
+                    , Run Kbd [("us", "ENG"), ("fr", "FRA"), ("pl", "POL")]
+                    , Run Battery [ "-t", "Batt: <acstatus>", "--Low", "10", "--High", "80", "--low", "red", "--", "-o", "<left>%", "-O", "Charging", "-i", "Charged" ] 50
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %dynnetwork% | %battery% | %cpu% | %memory% | %disku% | %kbd% <fc=#FFA300>%date%</fc> "
+       }
