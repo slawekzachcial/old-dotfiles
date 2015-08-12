@@ -22,7 +22,7 @@ alias view='vim -R'
 
 alias xarg1='xargs -n1 -i'
 
-if [[ "$(uname)"=="Linux" ]]; then
+if [[ "$(uname)" == "Linux" ]]; then
     alias startx='startx &> ~/.xlog'
 
     # Pacman alias examples
