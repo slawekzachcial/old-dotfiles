@@ -1,9 +1,9 @@
 
-if [ "$(uname)"=="Darwin" ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
     alias ls='ls -G'
     alias la='ls -G -la'
     alias ll='ls -G -l'
-elif [ "$(uname)"=="Linux" ]; then
+elif [[ "$(uname)" == "Linux" ]]; then
     alias ls='ls --color=auto'
     alias la='ls --color=auto -la'
     alias ll='ls --color=auto -l'
@@ -22,7 +22,7 @@ alias view='vim -R'
 
 alias xarg1='xargs -n1 -i'
 
-if [ "$(uname)"=="Linux" ]; then
+if [[ "$(uname)"=="Linux" ]]; then
     alias startx='startx &> ~/.xlog'
 
     # Pacman alias examples

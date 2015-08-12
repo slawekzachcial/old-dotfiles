@@ -19,7 +19,7 @@ import XMonad.Actions.DynamicWorkspaces
 import qualified Data.Map as M
 
 
-myLayout = renamed [CutWordsLeft 2] $ spacing 10 $ tiled ||| Mirror tiled ||| Full ||| Grid(4/3)
+myLayout = renamed [CutWordsLeft 2] $ spacing 10 $ Grid(4/3) ||| tiled ||| Mirror tiled ||| Full 
     where
         -- default tiling algorithm partitions the screen into two panes
         tiled = Tall nmaster delta ratio
