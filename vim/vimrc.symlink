@@ -22,6 +22,7 @@ Plugin 'Markdown'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'fatih/vim-go'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'ekalinin/Dockerfile.vim'
 
 " Other
 Plugin 'bling/vim-airline'
