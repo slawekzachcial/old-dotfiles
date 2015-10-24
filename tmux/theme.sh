@@ -12,9 +12,9 @@ tm_separator_left_thin="❮"
 tm_separator_right_bold="▶"
 tm_separator_right_thin="❯"
 
-set -g status-left-length 32
-set -g status-right-length 150
-set -g status-interval 5
+set-option -g status-left-length 32
+set-option -g status-right-length 150
+set-option -g status-interval 5
 
 
 # default statusbar colors
@@ -26,7 +26,7 @@ set-option -g status-attr default
 # default window title colors
 set-window-option -g window-status-fg $tm_color_inactive
 set-window-option -g window-status-bg default
-set -g window-status-format "#I #W"
+set-option -g window-status-format "#I #W"
 
 # active window title colors
 set-window-option -g window-status-current-fg $tm_color_active
@@ -52,5 +52,5 @@ tm_date="#[fg=$tm_color_inactive] %R %d %b"
 tm_host="#[fg=$tm_color_feature,bold]#h"
 tm_session_name="#[fg=$tm_color_feature,bold]$tm_icon #S"
 
-set -g status-left $tm_session_name' '
+set-option -g status-left $tm_session_name' '
 #set -g status-right $tm_itunes' '$tm_rdio' '$tm_spotify' '$tm_date' '$tm_host
