@@ -102,6 +102,10 @@ nmap <leader>i :set list!<CR>
 " toggle line numbers
 nmap <leader>N :setlocal number!<CR>
 
+" Disable re-indent when typing ':' which messes up YAML files
+"autocmd FileType yaml setlocal indentkeys-=<:>
+
+autocmd FileType coffee setlocal tabstop=2 shiftwidth=2 expandtab
 " }}}
 
 " Color Scheme {{{
@@ -121,6 +125,7 @@ let g:airline_theme='base16'
 
 " CtrlP {{{
 let g:ctrlp_map='<c-p>'
-let g:ctrlp_cmd='CtrlP'
-let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_cmd='CtrlPMixed'
+let g:ctrlp_working_path_mode='r'
 " }}}
+

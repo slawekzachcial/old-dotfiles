@@ -1,4 +1,4 @@
-set-option -g default-command "/usr/local/bin/reattach-to-user-namespace -l zsh"
+# set-option -g default-command "/usr/local/bin/reattach-to-user-namespace -l zsh"
 
 set-option -g default-terminal "screen-256color"
 set-option -g status-utf8 on
@@ -39,15 +39,15 @@ set-window-option -g mouse-utf8 on
 # Use VI mode
 set-window-option -g mode-keys vi
 
-# Interact with OSX clipboard
-# https://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future
-
-# Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
-# Update default binding of `Enter` to also use copy-pipe
-unbind-key -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+# # Interact with OSX clipboard
+# # https://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future
+# 
+# # Setup 'v' to begin selection as in Vim
+# bind-key -t vi-copy v begin-selection
+# bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+# # Update default binding of `Enter` to also use copy-pipe
+# unbind-key -t vi-copy Enter
+# bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
 ##############################
 ### Color & Style Settings ###
