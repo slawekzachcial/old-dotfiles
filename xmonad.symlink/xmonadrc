@@ -6,8 +6,9 @@
 xsetroot -cursor_name left_ptr
 
 # compositing manager for transparency
-compton -c -o.55 -r8 &
-#compton -bcCGf -i 0.8 -e 0.8 &
+#compton -c -o.55 -r8 &
+#compton -bcCGf -i 0.95 -e 0.95 -o 0.55 &
+compton -bcCG -i 0.95 -e 0.95 -o 0.55 &
 
 # set wallpaper
 #hsetroot -center ~/Pictures/wallpaper &

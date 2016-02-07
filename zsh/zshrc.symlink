@@ -49,6 +49,8 @@ zstyle ':completion:*' group-name
 
 export THEME="base16-default"
 export BACKGROUND="dark"
+# export THEME="base16-solarized"
+# export BACKGROUND="light"
 
 BASE16_SHELL="$DOTFILES/colors/base16-shell/$THEME.$BACKGROUND.sh"
 source $BASE16_SHELL
