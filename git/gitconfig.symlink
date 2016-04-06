@@ -26,6 +26,6 @@
 [credential]
     helper = cache --timeout 86400
 [http]
-    sslVerify = false
+    sslVerify = true
 [url "https://github.com/"]
 	insteadOf = git://github.com/
