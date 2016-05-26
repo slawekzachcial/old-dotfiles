@@ -9,7 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Plugins here:
 "
@@ -26,9 +26,10 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'ekalinin/Dockerfile.vim'
 
 " Other
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-commentary'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -78,6 +79,7 @@ set clipboard=unnamed                   " alias unnamed register to the + regist
 set cpoptions+=$                        " show dollar sign when changing
 set cursorline                          " highlight current line
 set colorcolumn=80                      " show margin at 80 characters
+set laststatus=2                        " status line always visible
 
 " disable arrow keys to force using VIM keys
 map <up> <nop>
@@ -96,13 +98,19 @@ map <C-l> <C-w>l
 
 " clear search buffer by pressing ,/
 " nmap <silent> ,/ :nohlsearch<CR>
-nmap <leader>h :set hlsearch!<CR>
+nmap <silent> <leader>h :set hlsearch!<CR>
 
 " toggle show/hide invisible chars
 nmap <leader>i :set list!<CR>
 
 " toggle line numbers
-nmap <leader>N :setlocal number!<CR>
+nmap <silent> <leader>N :setlocal number!<CR>
+
+" toggle paste
+nmap <silent> <leader>p :setlocal paste!<CR>
+
+" toggle wrap
+nmap <leader>w :setlocal wrap!<CR>
 
 " Disable re-indent when typing ':' which messes up YAML files
 "autocmd FileType yaml setlocal indentkeys-=<:>
@@ -120,9 +128,11 @@ execute "colorscheme ".$THEME
 " }}}
 
 " Airline {{{
-set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_theme='base16'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#left_sep=''
+let g:airline#extensions#tabline#left_alt_sep='|'
 " }}}
 
 " CtrlP {{{
