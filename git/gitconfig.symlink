@@ -14,9 +14,10 @@
     filemode = false
     editor = /usr/bin/vim
 [merge]
-    tool = bc3
+	tool = vimdiff
+	conflictstyle = diff3
 [mergetool]
-    prompt = false
+	prompt = false
 [difftool]
     prompt = false
 [svn]
