@@ -1,7 +1,9 @@
 URxvt*geometry: 120x40
 
-URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=12:antialias=true:hinting=true
-URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:pixelsize=12:antialias=true:hinting=true
+!URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=12:antialias=true:hinting=true
+!URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:Inconsolata for Powerline:pixelsize=14:antialias=true:hinting=true
+URxvt*boldFont: xft:Inconsolata for Powerline:pixelsize=14:antialias=true:hinting=true
 
 URxvt*scrollBar: false
 !URxvt*scrollstyle: plain
@@ -15,6 +17,12 @@ URxvt*depth: 32
 ! URxvt*transparent: true
 ! URxvt*shading: 30
 
+URxvt*pointerColor: #ffa300
+
+! Color taken for base16-default from  https://github.com/chriskempson/base16-xresources/blob/master/base16-default.dark.xresources
+! TODO: How to inject this color from the theme ???
+URxvt*background: #181818
+
 URxvt.perl-ext-common: clipboard
 URxvt.clipboard.autocopy: true
 URxvt.keysym.M-c:   perl:clipboard:copy
@@ -22,36 +30,35 @@ URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 ! Tango color palette
-!URxvt*background:         [90]#2e3436
-URxvt*background:         #2e3436
-URxvt*foreground:         #eeeeec
-URxvt*cursorColor:        #8ae234
+! URxvt*background:         #2e3436
+! URxvt*foreground:         #eeeeec
+! URxvt*cursorColor:        #8ae234
 ! foreground color for underline
-URxvt*colorUL:            #8ae234
+! URxvt*colorUL:            #8ae234
 ! line color for underline
-URxvt*underlineColor:     #92659a
+! URxvt*underlineColor:     #92659a
 ! black dark/light
-URxvt*color0:             #2e3436
-URxvt*color8:             #6e706b
+! URxvt*color0:             #2e3436
+! URxvt*color8:             #6e706b
 ! red dark/light
-URxvt*color1:             #cc0000
-URxvt*color9:             #ef2929
+! URxvt*color1:             #cc0000
+! URxvt*color9:             #ef2929
 ! green dark/light
-URxvt*color2:             #4e9a06
-URxvt*color10:            #8ae234
+! URxvt*color2:             #4e9a06
+! URxvt*color10:            #8ae234
 ! yellow dark/light
-URxvt*color3:             #edd400
-URxvt*color11:            #fce94f
+! URxvt*color3:             #edd400
+! URxvt*color11:            #fce94f
 ! blue dark/light
-URxvt*color4:             #3465a4
-URxvt*color12:            #729fcf
+! URxvt*color4:             #3465a4
+! URxvt*color12:            #729fcf
 ! magenta dark/light
-URxvt*color5:             #92659a
-URxvt*color13:            #c19fbe
+! URxvt*color5:             #92659a
+! URxvt*color13:            #c19fbe
 ! cyan dark/light
-URxvt*color6:             #07c7ca
-URxvt*color14:            #63e9e9
+! URxvt*color6:             #07c7ca
+! URxvt*color14:            #63e9e9
 ! white dark/light
-URxvt*color7:             #d3d7cf
-URxvt*color15:            #eeeeec
+! URxvt*color7:             #d3d7cf
+! URxvt*color15:            #eeeeec
 

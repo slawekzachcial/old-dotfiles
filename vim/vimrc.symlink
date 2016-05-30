@@ -4,29 +4,34 @@ set nocompatible              " be iMproved
 " Vundle {{{
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+" required!
+Plugin 'VundleVim/Vundle.vim'
 
-" My bundles here:
+" My Plugins here:
 "
-"Bundle 'altercation/vim-colors-solarized'
-Bundle 'xoria256.vim'
-Bundle 'Markdown'
-Bundle 'bufkill.vim'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-"Bundle 'wincent/Command-T'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tComment'
-Bundle 'YankRing.vim'
+" Colors
+Plugin 'chriskempson/base16-vim'
 
+" Languages
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'Markdown'
+Plugin 'jtratner/vim-flavored-markdown'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'fatih/vim-go'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'ekalinin/Dockerfile.vim'
+
+" Other
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-commentary'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+call vundle#end()
 filetype plugin indent on     " required!
 
 " }}}
@@ -45,7 +50,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 set hidden                              " allow to switch buffer with unwritten changes
 set nowrap                              " don't wrap lines
 set tabstop=4                           " a tab is 4 spaces
-set expandtab 							" use spaces instead of tabs
+set expandtab                           " use spaces instead of tabs
 set backspace=indent,eol,start          " allow backspacing over everything in insert mode
 set autoindent                          " always set autoindenting to on
 set copyindent                          " copy the previous indentation on autoindentin
@@ -66,12 +71,15 @@ set noerrorbells                        " don't beep
 set nobackup
 set noswapfile
 syntax on
-"set list                                        " highlight whitespaces
+set list                                        " highlight whitespaces
 set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·  " highlight whitespaces
 set wildmenu                            " show command completion matches highlights
-"set virtualedit=all                     " allow the cursor to go in to "invalid" places
-set clipboard=unnamedplus               " alias unnamed register to the + register, which is the X Window clipboard
+set virtualedit=all                     " allow the cursor to go in to "invalid" places
+set clipboard=unnamed                   " alias unnamed register to the + register, which is the X Window clipboard
 set cpoptions+=$                        " show dollar sign when changing
+set cursorline                          " highlight current line
+set colorcolumn=80                      " show margin at 80 characters
+set laststatus=2                        " status line always visible
 
 " disable arrow keys to force using VIM keys
 map <up> <nop>
@@ -80,7 +88,7 @@ map <left> <nop>
 map <right> <nop>
 
 " exit Edit mode with jj
-imap jj <ESC>
+" imap jj <ESC>
 
 " easy window navigation
 map <C-h> <C-w>h
@@ -89,78 +97,53 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " clear search buffer by pressing ,/
-nmap <silent> ,/ :nohlsearch<CR>
+" nmap <silent> ,/ :nohlsearch<CR>
+nmap <silent> <leader>h :set hlsearch!<CR>
 
 " toggle show/hide invisible chars
-nnoremap <leader>i :set list!<CR>
+nmap <leader>i :set list!<CR>
 
 " toggle line numbers
-nnoremap <leader>N :setlocal number!<CR>
+nmap <silent> <leader>N :setlocal number!<CR>
 
+" toggle paste
+nmap <silent> <leader>p :setlocal paste!<CR>
+
+" toggle wrap
+nmap <leader>w :setlocal wrap!<CR>
+
+" Disable re-indent when typing ':' which messes up YAML files
+"autocmd FileType yaml setlocal indentkeys-=<:>
+
+autocmd FileType coffee setlocal tabstop=2 shiftwidth=2 expandtab
 " }}}
 
 " Color Scheme {{{
-" -- Solarized --
-" From https://github.com/altercation/vim-colors-solarized
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans=1
-" syntax enable
-" set background=dark
-" colorscheme solarized
-" -- Xoria256 --
-syntax on
+" -- Base16 --
+set encoding=utf8
+let base16colorspace=256
 set t_Co=256
-colorscheme xoria256
+execute "set background=".$BACKGROUND
+execute "colorscheme ".$THEME
 " }}}
 
 " Airline {{{
-set laststatus=2
 let g:airline_powerline_fonts=1
+let g:airline_theme='base16'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#left_sep=''
+let g:airline#extensions#tabline#left_alt_sep='|'
 " }}}
 
-" vim-gitgutter {{{
-highlight clear SignColumn
+" CtrlP {{{
+let g:ctrlp_map='<c-p>'
+let g:ctrlp_cmd='CtrlPMixed'
+let g:ctrlp_working_path_mode='r'
 " }}}
 
-" tComment {{{
-map <leader>c <c-_><c-_>
+" vim-flavored-markdown {{{
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
 " }}}
-
-" Custom buffer selection function from http://djcraven5.blogspot.fr/2006/10/faster-buffer-switches-in-vim_21.html
-function! BufSel(pattern)
-    let buflist = []
-    let bufcount = bufnr("$")
-    let currbufnr = 1
-
-    while currbufnr <= bufcount
-        if(buflisted(currbufnr))
-            let currbufname = bufname(currbufnr)
-            if (exists("g:BufSel_Case_Sensitive") == 0 || g:BufSel_Case_Sensitive == 0)
-                let curmatch = tolower(currbufname)
-                let patmatch = tolower(a:pattern)
-            else
-                let curmatch = currbufname
-                let patmatch = a:pattern
-            endif
-            if(match(curmatch, patmatch) > -1)
-                call add(buflist, currbufnr)
-            endif
-        endif
-        let currbufnr = currbufnr + 1
-    endwhile
-    if(len(buflist) > 1)
-        for bufnum in buflist
-            echo bufnum . ":      ". bufname(bufnum)
-        endfor
-        let desiredbufnr = input("Enter buffer number: ")
-        if(strlen(desiredbufnr) != 0)
-            exe ":bu ". desiredbufnr
-        endif
-    elseif (len(buflist) == 1)
-        exe ":bu " . get(buflist,0)
-    else
-        echo "No matching buffers"
-    endif
-endfunction
-command! -nargs=1 -complete=buffer Bs :call BufSel("<args>")
-cabbr b Bs

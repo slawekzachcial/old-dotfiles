@@ -1,6 +1,8 @@
+[include]
+    # Capture in the file below environment-specific configurations
+    path = ~/.local-gitconfig
 [user]
     name = "Slawek Zachcial"
-    email = slawomir.zachcial@hp.com
 [color]
     ui = auto
 [alias]
@@ -10,10 +12,12 @@
     autocrlf = input
     excludesfile = ~/.gitignore_global
     filemode = false
+    editor = /usr/bin/vim
 [merge]
-    tool = bc3
+	tool = vimdiff
+	conflictstyle = diff3
 [mergetool]
-    prompt = false
+	prompt = false
 [difftool]
     prompt = false
 [svn]
@@ -23,6 +27,6 @@
 [credential]
     helper = cache --timeout 86400
 [http]
-    sslVerify = false
+    sslVerify = true
 [url "https://github.com/"]
-	insteadof = git://github.com/
+	insteadOf = git://github.com/

@@ -1,8 +1,8 @@
 export DOTFILES=$HOME/.dotfiles
 
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=20000
+SAVEHIST=20000
 
 setopt appendhistory extendedhistory extendedglob
 bindkey -v
@@ -10,22 +10,34 @@ bindkey -v
 autoload edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
-bindkey -M viins 'jj' vi-cmd-mode
+# bindkey -M viins 'jj' vi-cmd-mode
 
-source $DOTFILES/zsh/exports
-source $DOTFILES/zsh/aliases
-source $DOTFILES/zsh/functions
-source $DOTFILES/zsh/prompt
+source $DOTFILES/zsh/aliases.zsh
+source $DOTFILES/zsh/functions.zsh
+source $DOTFILES/zsh/prompt.zsh
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -r ~/.localrc ]; then
+    source ~/.localrc
+fi
 
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+export PATH=$HOME/bin:$PATH
+export EDITOR=vim
+
+if [[ "$(uname)" == "Darwin" ]]; then
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
+elif [[ "$(uname)" == "Linux" ]]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+fi
+
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 zstyle :compinstall filename "$HOME/.zshrc"
 
 fpath=($DOTFILES/zsh/completion $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 autoload -Uz compinit
 compinit
@@ -34,7 +46,16 @@ zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
-zstyle ':completion:*' group-name 
+zstyle ':completion:*' group-name
 
-start-ssh-agent
+export THEME="base16-default"
+export BACKGROUND="dark"
+# export THEME="base16-solarized"
+# export BACKGROUND="light"
 
+BASE16_SHELL="$DOTFILES/colors/base16-shell/$THEME.$BACKGROUND.sh"
+source $BASE16_SHELL
+
+if [[ "$(uname)" == "Linux" ]]; then
+    start-ssh-agent
+fi

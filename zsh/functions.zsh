@@ -1,4 +1,19 @@
 
+#
+# Common functions
+#
+
+function c {
+    cd ~/Workspace/$1
+}
+
+function svndiff {
+    svn diff "${@}" | colordiff | less
+}
+
+#
+# Linux functions
+#
 
 function ssh {
     # The commands in "if" create a new shell, detached from its parent (nohup + parenthesis) and then exit the current terminal
@@ -30,12 +45,12 @@ function start-ssh-agent {
 
         # Delete the socket file in case the agent was not shutdown correctly
         rm -f $SSH_AUTH_SOCK
-        
+
         # Exit status 2 means couldn't connect to ssh-agent; start one now
         ssh-agent -a $SSH_AUTH_SOCK >/tmp/.ssh-$USERNAME-script
         . /tmp/.ssh-$USERNAME-script
         echo $SSH_AGENT_PID >/tmp/.ssh-$USERNAME-agent-pid
-        
+
         # Add my private key
         #ssh-add ${HOME}/.ssh/DCC-PrivateKey-OpenSSH
         ssh-add ${HOME}/.ssh/id_rsa
@@ -45,10 +60,6 @@ function start-ssh-agent {
 function kill-ssh-agent {
     pid=$(cat /tmp/.ssh-$USERNAME-agent-pid)
     kill $pid
-}
-
-function svndiff {
-    svn diff "${@}" | colordiff | less
 }
 
 function leinrepl {
@@ -62,6 +73,3 @@ function bc3 {
     bcompare "$@" &
 }
 
-function c {
-    cd ~/Workspace/$1
-}
