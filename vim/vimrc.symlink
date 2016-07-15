@@ -27,6 +27,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-commentary'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -38,10 +39,6 @@ filetype plugin indent on     " required!
 
 " change the mapleader from \ to ,
 let mapleader=","
-
-" Quickly edit/reload vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " VIM behavior {{{
 set hidden                              " allow to switch buffer with unwritten changes
@@ -83,31 +80,6 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-
-" exit Edit mode with jj
-" imap jj <ESC>
-
-" easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" clear search buffer by pressing ,/
-" nmap <silent> ,/ :nohlsearch<CR>
-nmap <silent> <leader>h :set hlsearch!<CR>
-
-" toggle show/hide invisible chars
-nmap <leader>i :set list!<CR>
-
-" toggle line numbers
-nmap <silent> <leader>N :setlocal number!<CR>
-
-" toggle paste
-nmap <silent> <leader>p :setlocal paste!<CR>
-
-" toggle wrap
-nmap <leader>w :setlocal wrap!<CR>
 
 " Disable re-indent when typing ':' which messes up YAML files
 "autocmd FileType yaml setlocal indentkeys-=<:>
