@@ -20,9 +20,6 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'Markdown'
 Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'fatih/vim-go'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'ekalinin/Dockerfile.vim'
 
 " Other
