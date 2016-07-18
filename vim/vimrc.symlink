@@ -149,6 +149,6 @@ let g:ctrlp_working_path_mode='r'
 " vim-flavored-markdown {{{
 augroup markdown
     au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown textwidth=80
 augroup END
 " }}}
