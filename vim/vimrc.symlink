@@ -42,10 +42,6 @@ filetype plugin indent on     " required!
 " change the mapleader from \ to ,
 let mapleader=","
 
-" Quickly edit/reload vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
 " VIM behavior {{{
 set hidden                              " allow to switch buffer with unwritten changes
 set nowrap                              " don't wrap lines
@@ -95,6 +91,11 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+
+" Quickly edit/reload vimrc file
+nmap <silent> <leader>ve :e $MYVIMRC<CR>
+nmap <silent> <leader>vs :so $MYVIMRC<CR>
 
 " clear search buffer by pressing ,/
 " nmap <silent> ,/ :nohlsearch<CR>
