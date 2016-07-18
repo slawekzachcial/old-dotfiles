@@ -20,9 +20,6 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'Markdown'
 Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'fatih/vim-go'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'ekalinin/Dockerfile.vim'
 
 " Other
@@ -30,6 +27,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-commentary'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -58,8 +56,8 @@ set smartcase                           " ignore case if search pattern is all l
 set smarttab                            " insert tabs on the start of a line according to shiftwidth not tabstop
 set hlsearch                            " highlight search terms
 set incsearch                           " show search matches as you type
-set history=1000                        " remember more commands and search history
-set undolevels=1000                     " use many muchos levels of undo
+set history=10000                       " remember more commands and search history
+set undolevels=10000                    " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                               " change the terminal's title
 set visualbell                          " don't beep
@@ -83,39 +81,6 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-
-" exit Edit mode with jj
-" imap jj <ESC>
-
-" easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-
-" Quickly edit/reload vimrc file
-nmap <silent> <leader>ve :e $MYVIMRC<CR>
-nmap <silent> <leader>vs :so $MYVIMRC<CR>
-
-" clear search buffer by pressing ,/
-" nmap <silent> ,/ :nohlsearch<CR>
-nmap <silent> <leader>h :set hlsearch!<CR>
-
-" toggle show/hide invisible chars
-nmap <leader>i :set list!<CR>
-
-" toggle line numbers
-nmap <silent> <leader>N :setlocal number!<CR>
-
-" toggle paste
-nmap <silent> <leader>p :setlocal paste!<CR>
-
-" toggle wrap
-nmap <leader>w :setlocal wrap!<CR>
-
-" toggle spell check
-nmap <leader>s :setlocal spell!<CR>
 
 " Disable re-indent when typing ':' which messes up YAML files
 "autocmd FileType yaml setlocal indentkeys-=<:>
