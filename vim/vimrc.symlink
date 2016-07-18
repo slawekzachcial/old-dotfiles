@@ -76,6 +76,7 @@ set cpoptions+=$                        " show dollar sign when changing
 set cursorline                          " highlight current line
 set colorcolumn=80                      " show margin at 80 characters
 set laststatus=2                        " status line always visible
+set spelllang=en_us                     " set the locale for spell check
 
 " disable arrow keys to force using VIM keys
 map <up> <nop>
@@ -112,6 +113,9 @@ nmap <silent> <leader>p :setlocal paste!<CR>
 
 " toggle wrap
 nmap <leader>w :setlocal wrap!<CR>
+
+" toggle spell check
+nmap <leader>s :setlocal spell!<CR>
 
 " Disable re-indent when typing ':' which messes up YAML files
 "autocmd FileType yaml setlocal indentkeys-=<:>
