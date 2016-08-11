@@ -43,4 +43,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 
     alias cdrom='sudo mount /dev/cdrom /media/cdrom'
     alias eject='sudo eject'
+
+    # -bg color taken for base16-default base00 from  https://github.com/chriskempson/base16-xresources/blob/master/base16-default.light.xresources
+    alias urxvt-light='env BACKGROUND=light urxvt -bg "#f8f8f8"'
 fi

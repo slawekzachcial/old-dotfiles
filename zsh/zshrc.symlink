@@ -49,7 +49,9 @@ zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name
 
 export THEME="base16-default"
-export BACKGROUND="dark"
+
+# There is an alias called urxvt-light that passes BACKGROUND=light variable so we want to leverage that
+[ -n "$BACKGROUND" ] || export BACKGROUND="dark"
 # export THEME="base16-solarized"
 # export BACKGROUND="light"
 
