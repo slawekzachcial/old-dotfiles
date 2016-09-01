@@ -15,10 +15,10 @@ URxvt*scrollBar: false
 URxvt*saveLines: 65535
 
 URxvt*depth: 32
-! URxvt*foreground: White
-! URxvt*background: [50]#202020
-! URxvt*transparent: true
-! URxvt*shading: 30
+!URxvt*foreground: White
+!URxvt*background: [50]#202020
+!URxvt*transparent: true
+!URxvt*shading: 30
 
 URxvt*pointerColor: #ffa300
 
@@ -26,10 +26,19 @@ URxvt*pointerColor: #ffa300
 ! TODO: How to inject this color from the theme ???
 URxvt*background: #181818
 
-URxvt.perl-ext-common: clipboard
+URxvt.perl-ext-common: clipboard,resize-font,matcher
+
+! Copy/paste
 URxvt.clipboard.autocopy: true
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
+! Resize fonts on the fly
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger:  C-Up
+
+! Highlight URLs and allow clicking on them
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
