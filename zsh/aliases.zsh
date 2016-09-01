@@ -11,7 +11,7 @@ fi
 
 alias ld='ls -d *(/)'
 alias h='history'
-alias r='fc -s'
+alias r='fc -e -'
 alias cdiff=colordiff
 alias cgrep='grep --color=auto'
 alias egrep='grep -E'
