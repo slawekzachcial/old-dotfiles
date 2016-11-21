@@ -6,7 +6,7 @@ Config { font = "xft:Ubuntu Mono derivative Powerline:pixelsize=15:bold:antialia
        , commands = [ Run Cpu ["-t", "CPU:<total>%", "-p", "3", "-H","50","--high","red"] 50
                     , Run Memory ["-t","RAM:<usedratio>%", "-p", "3", "-H", "80", "--high", "red"] 50
                     , Run Date "%a %b %_d %Y %H:%M" "date" 10
-                    , Run DiskU [("/", "HD: / <usedp>%"), ("/home", "/home <usedp>%")] [] 100
+                    , Run DiskU [("/", "HD: / <usedp>%"), ("/home", "/home <usedp>%"), ("/var/lib/docker", "/docker <usedp>%")] [] 100
                     , Run DynNetwork [] 10
                     , Run Network "eth1" [] 10
                     , Run Kbd [("us", "ENG"), ("fr", "FRA"), ("pl", "POL")]
