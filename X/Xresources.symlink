@@ -4,7 +4,7 @@ URxvt*geometry: 120x40
 !URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:pixelsize=12:antialias=true:hinting=true
 !URxvt*font: xft:Inconsolata for Powerline:pixelsize=14:antialias=true:hinting=true
 !URxvt*font: xft:Inconsolata for Powerline:pixelsize=14:antialias=true:hinting=true
-URxvt*font: xft:Ubuntu Mono derivative Powerline:pixelsize=16:antialias=true:hinting=true
+URxvt*font: xft:Ubuntu Mono derivative Powerline:style=Regular:pixelsize=16:antialias=true:hinting=true
 URxvt*boldFont: xft:Ubuntu Mono derivative Powerline:style=Bold:pixelsize=16:antialias=true:hinting=true
 URxvt*letterSpace: -1
 
