@@ -126,3 +126,7 @@ augroup markdown
     au BufNewFile,BufRead *.md setlocal textwidth=80
 augroup END
 " }}}
+
+" vim-coffee-script {{{
+autocmd BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent nofoldenable
+" }}}
