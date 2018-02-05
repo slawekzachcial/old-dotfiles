@@ -22,6 +22,9 @@ Plugin 'gabrielelana/vim-markdown'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'fatih/vim-go'
+Plugin 'pangloss/vim-javascript'
+Plugin 'leshill/vim-json'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
 
 " Other
 Plugin 'vim-airline/vim-airline'
@@ -129,4 +132,8 @@ augroup END
 
 " vim-coffee-script {{{
 autocmd BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent nofoldenable
+" }}}
+
+" vim-javascript {{{
+autocmd BufNewFile,BufReadPost *.js setlocal foldmethod=syntax nofoldenable shiftwidth=2 tabstop=2
 " }}}
