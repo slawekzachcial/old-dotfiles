@@ -14,10 +14,10 @@
     filemode = false
     editor = /usr/bin/vim
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+    tool = vimdiff
+    conflictstyle = diff3
 [mergetool]
-	prompt = false
+    prompt = false
 [difftool]
     prompt = false
 [svn]
@@ -29,6 +29,6 @@
 [http]
     sslVerify = true
 [url "https://github.com/"]
-	insteadOf = git://github.com/
+    insteadOf = git://github.com/
 [url "https://anongit.freedesktop.org/git/"]
     insteadOf = git://anongit.freedesktop.org/
