@@ -53,7 +53,7 @@ main = do
     xmproc <- spawnPipe "/usr/bin/xmobar /home/slawek/.xmonad/xmobarrc"
     xmonad $ defaultConfig
         { modMask = mod4Mask
-        , terminal = "termite --exec tmux"
+        , terminal = "termite --exec '/usr/bin/tmux new-session -A -s Arch'"
         , borderWidth = 5
         , normalBorderColor = "#1793D1"
         , focusedBorderColor = "#FFA300"
