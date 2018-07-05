@@ -128,10 +128,10 @@ let g:ctrlp_working_path_mode='r'
 " }}}
 
 " vim-markdown {{{
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md setlocal textwidth=80
-augroup END
+" augroup markdown
+"     au!
+"     au BufNewFile,BufRead *.md setlocal textwidth=80
+" augroup END
 " }}}
 
 " vim-coffee-script {{{
