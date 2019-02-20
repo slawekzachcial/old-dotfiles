@@ -83,6 +83,7 @@ set cursorline                          " highlight current line
 set colorcolumn=80                      " show margin at 80 characters
 set laststatus=2                        " status line always visible
 set spelllang=en_us                     " set the locale for spell check
+set number relativenumber               " turn on hybrid line numbers
 " set mouse=a                             " make mouse scroling work
 
 " disable arrow keys to force using VIM keys
