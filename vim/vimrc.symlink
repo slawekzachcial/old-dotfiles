@@ -18,7 +18,7 @@ Plugin 'chriskempson/base16-vim'
 
 " Languages
 Plugin 'tmux-plugins/vim-tmux'
-Plugin 'gabrielelana/vim-markdown'
+Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'fatih/vim-go'
@@ -35,7 +35,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'gabesoft/vim-ags'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -74,7 +74,7 @@ set nobackup
 set noswapfile
 syntax on
 set list                                        " highlight whitespaces
-set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·  " highlight whitespaces
+set listchars=tab:→\ ,trail:·,precedes:«,extends:»,eol:¬ " highlight whitespaces
 set wildmenu                            " show command completion matches highlights
 set virtualedit=all                     " allow the cursor to go in to "invalid" places
 set clipboard=unnamed                   " alias unnamed register to the + register, which is the X Window clipboard
@@ -92,11 +92,6 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-" Disable re-indent when typing ':' which messes up YAML files
-"autocmd FileType yaml setlocal indentkeys-=<:>
-
-autocmd FileType coffee setlocal tabstop=2 shiftwidth=2 expandtab
-" }}}
 
 " Color Scheme {{{
 " -- Base16 --
@@ -117,22 +112,15 @@ let g:airline#extensions#tabline#left_alt_sep='|'
 
 " CtrlP {{{
 let g:ctrlp_map='<c-p>'
-let g:ctrlp_cmd='CtrlPMixed'
-let g:ctrlp_working_path_mode='r'
+let g:ctrlp_cmd='CtrlPBuffer'
+let g:ctrlp_working_path_mode='c'
 " }}}
 
 " vim-flavored-markdown {{{
-" augroup markdown
-"     au!
-"     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown textwidth=80
-" augroup END
-" }}}
-
-" vim-markdown {{{
-" augroup markdown
-"     au!
-"     au BufNewFile,BufRead *.md setlocal textwidth=80
-" augroup END
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown textwidth=80
+augroup END
 " }}}
 
 " vim-coffee-script {{{
@@ -149,6 +137,22 @@ autocmd BufNewFile,BufRead Jenkinsfile setlocal syntax=groovy foldmethod=indent 
 let g:terraform_align=1
 let g:terraform_fold_sections=1
 autocmd FileType terraform setlocal commentstring=#%s
+" }}}
+
+" yaml {{{
+" Disable re-indent when typing ':' which messes up YAML files
+autocmd FileType yaml setlocal indentkeys-=<:> shiftwidth=2 tabstop=2 expandtab
+" }}}
+
+" vim-ags {{{
+" Search for the word under cursor
+nnoremap <Leader>s :Ags<Space><C-R>=expand('<cword>')<CR><CR>
+" Search for the visually selected text
+vnoremap <Leader>s y:Ags<Space><C-R>='"' . escape(@", '"*?()[]{}.') . '"'<CR><CR>
+" Run Ags
+nnoremap <Leader>a :Ags<Space>
+" Quit Ags
+nnoremap <Leader><Leader>a :AgsQuit<CR>
 " }}}
 
 if exists('$ITERM_PROFILE')
