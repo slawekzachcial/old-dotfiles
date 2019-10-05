@@ -55,6 +55,9 @@ export THEME="base16-default"
 BASE16_SHELL="$DOTFILES/colors/base16-shell/$THEME.$BACKGROUND.sh"
 source $BASE16_SHELL
 
+source '/usr/local/opt/fzf/shell/key-bindings.zsh'
+source '/usr/local/opt/fzf/shell/completion.zsh'
+
 if [[ "$(uname)" == "Linux" ]]; then
     start-ssh-agent
 fi
